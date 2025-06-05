@@ -1,0 +1,131 @@
+.analisis-general-container {
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #000000;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Sección superior */
+.top-section {
+  display: flex;
+  gap: 20px;
+}
+
+.dataset-info {
+  flex: 1;
+  max-width: 300px;
+}
+
+.annual-chart {
+  flex: 2;
+}
+
+.dataset-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-label {
+  color: #ffffff;
+}
+
+.stat-value {
+  font-weight: bold;
+}
+
+/* Selector de año */
+.year-selector {
+  max-width: 900px;
+}
+
+.year-selector select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #b3a6d0;
+}
+
+/* Sección media */
+.middle-section {
+  display: flex;
+  gap: 20px;
+}
+
+.summary {
+  flex: 1;
+}
+
+.map {
+  flex: 2;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #99b4d0;
+  border-radius: 4px;
+}
+
+/* Sección inferior */
+.bottom-section {
+  display: flex;
+  gap: 20px;
+}
+
+.bottom-section > .card {
+  flex: 1;
+}
+
+/* Estilos comunes */
+.card {
+  background: rgb(107, 106, 121);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.custom-tooltip {
+  position: absolute;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 100;
+}
