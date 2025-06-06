@@ -167,6 +167,16 @@ const Relaciones = () => {
     const colorScale = d3.scaleSequential(d3.interpolateBlues)
       .domain([0, d3.max(filteredData, d => +d.mag)]);
 
+    // Helper function to count data points in a bin
+    function countInBin(data, depthBin, magBin) {
+      return data.filter(dataPoint =>
+        +dataPoint.depth >= depthBin.x0 &&
+        +dataPoint.depth < depthBin.x1 &&
+        +dataPoint.mag >= magBin.x0 &&
+        +dataPoint.mag < magBin.x1
+      ).length;
+    }
+
     svg.append("g")
       .selectAll("rect")
       .data(depthBins)
@@ -176,7 +186,7 @@ const Relaciones = () => {
       .data(d => magBins.map(magBin => ({
         depth: d.x0,
         mag: magBin.x0,
-        count: filteredData.filter(dataPoint => +dataPoint.depth >= d.x0 && +dataPoint.depth < d.x1 && +dataPoint.mag >= magBin.x0 && +dataPoint.mag < magBin.x1).length
+        count: countInBin(filteredData, d, magBin)
       })))
       .enter()
       .append("rect")
@@ -194,15 +204,15 @@ const Relaciones = () => {
       .call(d3.axisLeft(y));
   };
 
-  const years = [...new Set(data.map(d => new Date(d.time).getFullYear()))].sort();
+  const years = [...new Set(data.map(d => new Date(d.time).getFullYear()))].sort((a, b) => a - b);
 
   return (
     <div className="relaciones-container">
       <h2>Relaciones</h2>
       <div className="controls">
         <div className="control-group">
-          <label>Año:</label>
-          <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
+          <label htmlFor="year-select">Año:</label>
+          <select id="year-select" value={yearFilter} onChange={(e) => setYearFilter(e.target.value)}>
             <option value="all">Todos</option>
             {years.map(year => (
               <option key={year} value={year}>{year}</option>

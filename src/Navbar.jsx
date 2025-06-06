@@ -28,18 +28,23 @@ const Navbar = () => {
           type="button"
           className={`navbar-item ${activeItem === 'Análisis General' ? 'active' : ''}`}
           onClick={() => setActiveItem('Análisis General')}
-        ></button>        <div
+        >
+          <FaHome /> <span>Análisis General</span>
+        </button>
+        <button
+          type="button"
           className={`navbar-item ${activeItem === 'Columna' ? 'active' : ''}`}
           onClick={() => setActiveItem('Columna')}
         >
           <FaChartBar /> <span>Columna</span>
-        </div>
-        <div
+        </button>
+        <button
+          type="button"
           className={`navbar-item ${activeItem === 'Relación' ? 'active' : ''}`}
           onClick={() => setActiveItem('Relación')}
         >
           <FaLink /> <span>Relación</span>
-        </div>
+        </button>
       </div>
       <div className="content">
         {renderContent()}
