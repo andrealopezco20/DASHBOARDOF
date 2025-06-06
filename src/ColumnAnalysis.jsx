@@ -442,4 +442,10 @@ const ColumnAnalysis = ({ data }) => {
   );
 };
 
+import PropTypes from 'prop-types';
+
+ColumnAnalysis.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
 export default ColumnAnalysis;

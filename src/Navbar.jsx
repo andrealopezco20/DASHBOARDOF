@@ -24,13 +24,11 @@ const Navbar = () => {
   return (
     <div className="app-container">
       <div className="navbar">
-        <div
+        <button
+          type="button"
           className={`navbar-item ${activeItem === 'Análisis General' ? 'active' : ''}`}
           onClick={() => setActiveItem('Análisis General')}
-        >
-          <FaHome /> <span>Análisis General</span>
-        </div>
-        <div
+        ></button>        <div
           className={`navbar-item ${activeItem === 'Columna' ? 'active' : ''}`}
           onClick={() => setActiveItem('Columna')}
         >

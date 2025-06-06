@@ -163,7 +163,7 @@ const AnalisisGeneral = () => {
       .domain([0, d3.max(barData, d => d.count)]).nice()
       .range([height - margin.bottom, margin.top]);
 
-    const bars = svg.append("g")
+    svg.append("g")
       .selectAll("rect")
       .data(barData)
       .join("rect")
@@ -269,7 +269,7 @@ const AnalisisGeneral = () => {
       .style("text-anchor", "middle");
   }, [data, yearFilter]);
 
-  const years = Array.from(new Set(data.map(d => d.year))).sort();
+  const years = Array.from(new Set(data.map(d => d.year))).sort((a, b) => a - b);
   const filteredData = data.filter(d => d.year == yearFilter);
   const magnitudes = filteredData.map(d => d.mag);
   const avgMag = (d3.mean(magnitudes) || 0).toFixed(2);
