@@ -56,7 +56,6 @@ const Relaciones = () => {
             break;
         }
       });
-      setAnalysisText('Análisis: Aquí puedes ver dos gráficos que muestran diferentes relaciones entre los datos.');
     }
   }, [data, activeCharts, yearFilter]);
 
